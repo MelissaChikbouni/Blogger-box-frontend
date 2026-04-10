@@ -1,0 +1,28 @@
+/* Top Bar Styles
+.navbar {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+  padding: 0.5rem 0;
+}
+
+.navbar-brand {
+  font-weight: 600;
+  color: #333;
+  font-size: 1.25rem;
+  margin-right: 2rem;
+}
+
+.navbar-brand:hover {
+  color: #0056b3;
+}
+
+.btn-outline-success {
+  border-color: #28a745;
+  color: #28a745;
+  font-weight: 500;
+}
+
+.btn-outline-success:hover {
+  background-color: #28a745;
+  color: white;
+} */
