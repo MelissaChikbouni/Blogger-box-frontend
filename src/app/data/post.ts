@@ -8,6 +8,11 @@ export interface Post {
   category: Category;
 }
 
+export type PostCreateInput = Omit<Post, 'id' | 'createdDate' | 'category'> & {
+  categoryId: string;
+  isActive?: boolean;
+};
+
 export const POSTS = [
   {
     id: 'c9f3bcb3-dd91-4d79-88d8-5b9d99d8cd20',

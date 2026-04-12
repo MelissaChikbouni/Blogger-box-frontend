@@ -1,0 +1,70 @@
+<div class="container mt-4">
+  <h2>Add Post</h2>
+
+  <form [formGroup]="postForm" (ngSubmit)="onSubmit()" autocomplete="off" novalidate>
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input
+        id="title"
+        type="text"
+        class="form-control"
+        formControlName="title"
+        [class.is-invalid]="titleControl.invalid && titleControl.touched"
+        [class.is-valid]="titleControl.valid && titleControl.touched"
+      />
+      @if (titleControl.touched && titleControl.errors?.['required']) {
+        <div class="invalid-feedback d-block">Title is required.</div>
+      }
+      @if (titleControl.touched && titleControl.errors?.['minlength']) {
+        <div class="invalid-feedback d-block">Title must contain at least 5 characters.</div>
+      }
+      @if (titleControl.touched && titleControl.errors?.['maxlength']) {
+        <div class="invalid-feedback d-block">Title cannot exceed 150 characters.</div>
+      }
+    </div>
+
+    <div class="mb-3">
+      <label for="category" class="form-label">Category</label>
+      <select
+        id="category"
+        class="form-select"
+        formControlName="categoryId"
+        [class.is-invalid]="categoryIdControl.invalid && categoryIdControl.touched"
+        [class.is-valid]="categoryIdControl.valid && categoryIdControl.touched"
+      >
+        <option value="">Select a category</option>
+        @for (category of categories; track category.id) {
+          <option [value]="category.id">{{ category.name }}</option>
+        }
+      </select>
+      @if (categoryIdControl.touched && categoryIdControl.errors?.['required']) {
+        <div class="invalid-feedback d-block">Category is required.</div>
+      }
+    </div>
+
+    <div class="mb-3">
+      <label for="content" class="form-label">Content</label>
+      <textarea
+        id="content"
+        rows="6"
+        class="form-control"
+        formControlName="content"
+        [class.is-invalid]="contentControl.invalid && contentControl.touched"
+        [class.is-valid]="contentControl.valid && contentControl.touched"
+      ></textarea>
+      @if (contentControl.touched && contentControl.errors?.['required']) {
+        <div class="invalid-feedback d-block">Content is required.</div>
+      }
+      @if (contentControl.touched && contentControl.errors?.['maxlength']) {
+        <div class="invalid-feedback d-block">Post content should not exceed 2500 characters</div>
+      }
+    </div>
+
+    
+      <div class="actions">
+        <button type="button" class="btn btn-outline-danger" (click)="onClose()">Close</button>
+        <button type="submit" class="btn btn-success">Post message</button>
+      </div>
+    </form>
+  </div>
+

@@ -8,15 +8,19 @@ import { TopBar } from './components/top-bar/top-bar';
 import { provideHttpClient } from '@angular/common/http';
 import { PostList } from './components/post-list/post-list';
 import { PostListItem } from './components/post-list-item/post-list-item';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AddPost } from './components/add-post/add-post';
 @NgModule({
   declarations: [
     App,
     TopBar,
     PostList,
     PostListItem,
+    AddPost,
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     AppRoutingModule,
   ],
   providers: [
